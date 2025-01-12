@@ -7,7 +7,7 @@ const {
   updateCliente,
   deleteCliente,
 } = require("../controllers/clienteController");
-const { protect } = require("../middlewares/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 

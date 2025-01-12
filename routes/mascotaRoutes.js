@@ -6,7 +6,7 @@ const {
   actualizarMascota,
   eliminarMascota,
 } = require("../controllers/mascotaController");
-const { protect } = require("../middlewares/authMiddleware"); // Middleware de autenticación
+const { protect } = require("../middleware/authMiddleware"); // Middleware de autenticación
 
 const router = express.Router();
 
