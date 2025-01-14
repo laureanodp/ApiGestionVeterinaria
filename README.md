@@ -33,16 +33,26 @@ Esta es una API RESTful desarrollada con Node.js, Express y MongoDB para gestion
 - MongoDB instalado y corriendo localmente o en un servicio cloud.
 - Configurar un archivo `.env` con las siguientes variables:
 
-## **Estructura del proyecto**
+## **Estructura del Proyecto**
 
-gestion-veterinaria/
-├── controllers/         # Lógica de negocio
-├── middleware/          # Middlewares (authMiddleware)
-├── models/              # Modelos de Mongoose (User, Cliente, Mascota)
-├── routes/              # Definición de rutas (auth, clientes, mascotas)
-├── .env                 # Variables de entorno
-├── server.js            # Archivo principal del servidor
-└── package.json         # Configuración del proyecto
+Este proyecto se organiza de la siguiente manera:
+
+* **Carpetas principales:**
+  * `controllers`: Contiene la lógica de negocio de la aplicación.
+  * `middleware`: Almacena los middlewares, como el middleware de autenticación.
+  * `models`: Define los modelos de Mongoose para interactuar con la base de datos (usuarios, clientes, mascotas).
+  * `routes`: Define las rutas de la API (autenticación, clientes, mascotas).
+  * `.env`: Contiene las variables de entorno de la aplicación.
+  * `server.js`: Es el punto de entrada de la aplicación.
+  * `package.json`: Contiene las dependencias y configuración del proyecto.
+
+* **Estructura de archivos:**
+  | Carpeta     | Descripción                                                               |
+  |-------------|---------------------------------------------------------------------------|
+  | controllers | Controladores para cada recurso (usuarios, clientes, mascotas)              |
+  | middleware  | Middlewares para autenticación, validación, etc.                             |
+  | models      | Modelos de Mongoose para representar los datos en la base de datos         |
+  | routes      | Definición de las rutas de la API                                           |
 
 
 ### **Rutas**
