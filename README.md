@@ -35,14 +35,7 @@ Esta es una API RESTful desarrollada con Node.js, Express y MongoDB para gestion
 
 ## **Estructura del proyecto**
 
-gestion-veterinaria/
-├── controllers/         # Lógica de negocio
-├── middleware/          # Middlewares (authMiddleware)
-├── models/              # Modelos de Mongoose (User, Cliente, Mascota)
-├── routes/              # Definición de rutas (auth, clientes, mascotas)
-├── .env                 # Variables de entorno
-├── server.js            # Archivo principal del servidor
-└── package.json         # Configuración del proyecto
+gestion-veterinaria/ ├── controllers/ # Lógica de negocio (controladores para User, Cliente y Mascota) ├── middleware/ # Middlewares (authMiddleware para autenticación) ├── models/ # Modelos de Mongoose (User, Cliente, Mascota) ├── routes/ # Definición de rutas (auth, clientes, mascotas) ├── .env # Variables de entorno (configuración sensible como JWT_SECRET y DB_URI) ├── server.js # Archivo principal del servidor └── package.json # Configuración del proyecto y dependencias
 
 ### **Rutas**
 
