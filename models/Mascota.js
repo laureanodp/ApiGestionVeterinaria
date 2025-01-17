@@ -11,7 +11,8 @@ const mascotaSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Cliente",
       required: true,
-    }, // referencia a Cliente
+    }, // Referencia a Cliente
+    imageUrl: { type: String, required: false }, // URL de la imagen en el CDN
   },
   { timestamps: true }
 );
