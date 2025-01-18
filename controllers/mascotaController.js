@@ -1,7 +1,7 @@
 const Mascota = require("../models/Mascota");
 const Cliente = require("../models/Cliente");
 
-// Crear una nueva mascota vinculada a un cliente
+// Crear una nueva mascota con o sin imagen
 exports.crearMascota = async (req, res) => {
   try {
     const { nombre, especie, raza, edad, cliente_id } = req.body;
@@ -12,13 +12,17 @@ exports.crearMascota = async (req, res) => {
       return res.status(404).json({ error: "Cliente no encontrado" });
     }
 
-    // Crear la nueva mascota
+    // Obtener la URL de la imagen (si fue enviada)
+    const imageUrl = req.file ? req.file.path : null;
+
+    // Crear la mascota
     const nuevaMascota = new Mascota({
       nombre,
       especie,
       raza,
       edad,
       cliente_id,
+      imageUrl,
     });
 
     const mascotaGuardada = await nuevaMascota.save();
@@ -28,7 +32,7 @@ exports.crearMascota = async (req, res) => {
   }
 };
 
-// Obtener todas las mascotas (opcional)
+// Obtener todas las mascotas
 exports.obtenerMascotas = async (req, res) => {
   try {
     const mascotas = await Mascota.find().populate(
@@ -41,7 +45,7 @@ exports.obtenerMascotas = async (req, res) => {
   }
 };
 
-// Obtener mascotas por cliente (filtrar por cliente_id)
+// Obtener mascotas por cliente
 exports.obtenerMascotasPorCliente = async (req, res) => {
   try {
     const { cliente_id } = req.params;
@@ -62,7 +66,7 @@ exports.obtenerMascotasPorCliente = async (req, res) => {
   }
 };
 
-// Actualizar una mascota por ID
+// Actualizar una mascota con o sin imagen
 exports.actualizarMascota = async (req, res) => {
   try {
     const { id } = req.params;
@@ -76,9 +80,19 @@ exports.actualizarMascota = async (req, res) => {
       }
     }
 
+    // Obtener la URL de la imagen (si fue enviada)
+    const imageUrl = req.file ? req.file.path : undefined;
+
     const mascotaActualizada = await Mascota.findByIdAndUpdate(
       id,
-      { nombre, especie, raza, edad, cliente_id },
+      {
+        nombre,
+        especie,
+        raza,
+        edad,
+        cliente_id,
+        ...(imageUrl && { imageUrl }),
+      },
       { new: true, runValidators: true }
     );
 
@@ -92,7 +106,7 @@ exports.actualizarMascota = async (req, res) => {
   }
 };
 
-// Eliminar una mascota por ID
+// Eliminar una mascota
 exports.eliminarMascota = async (req, res) => {
   try {
     const { id } = req.params;
