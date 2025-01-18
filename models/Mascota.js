@@ -17,4 +17,7 @@ const mascotaSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Índice compuesto para evitar mascotas con el mismo nombre para un cliente
+mascotaSchema.index({ nombre: 1, cliente_id: 1 }, { unique: true });
+
 module.exports = mongoose.model("Mascota", mascotaSchema);
