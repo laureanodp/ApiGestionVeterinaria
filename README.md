@@ -2,20 +2,17 @@
 
 Esta es una API RESTful desarrollada con Node.js, Express y MongoDB para gestionar usuarios, clientes y sus respectivas mascotas. La API permite realizar operaciones CRUD completas y cuenta con autenticación mediante JWT.
 
-## **Características**
+## Características
+- **CRUD de Usuarios** (registro y login con JWT).
+- **CRUD de Clientes** (cada cliente pertenece a un usuario).
+- **CRUD de Mascotas** (cada mascota pertenece a un cliente, con opción de adjuntar imágenes).
+- **Autenticación protegida mediante JWT**.
+- **Subida y almacenamiento de imágenes en Cloudinary**.
+- **Validación de datos y manejo de errores**.
+- **Organización modular del código**.
+- **Protección de rutas con middleware de autenticación**.
 
-- CRUD de **Usuarios** (registro y login con JWT).
-- CRUD de **Clientes** (cada cliente pertenece a un usuario).
-- CRUD de **Mascotas** (cada mascota pertenece a un cliente).
-- Autenticación protegida mediante **JWT**.
-- Validación de datos y manejo de errores.
-- Organización modular del código.
-- Protección de rutas con middleware de autenticación.
-
----
-
-## **Tecnologías utilizadas**
-
+## Tecnologías utilizadas
 - **Node.js** – Entorno de ejecución.
 - **Express** – Framework web para Node.js.
 - **MongoDB** – Base de datos NoSQL.
@@ -24,6 +21,8 @@ Esta es una API RESTful desarrollada con Node.js, Express y MongoDB para gestion
 - **bcrypt.js** – Encriptación de contraseñas.
 - **dotenv** – Manejo de variables de entorno.
 - **Cors** – Configuración de políticas de CORS.
+- **Multer** – Middleware para la gestión de archivos.
+- **Cloudinary** – Plataforma para el almacenamiento de imágenes.
 
 ---
 
