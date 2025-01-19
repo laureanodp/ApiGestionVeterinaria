@@ -49,8 +49,7 @@ Este proyecto se organiza de la siguiente manera:
   | Carpeta     | Descripción                                                               |
   |-------------|---------------------------------------------------------------------------|
   | controllers | Controladores para cada recurso (usuarios, clientes, mascotas)              |
-  | middleware  | Middlewares para autenticación, validación, y manejo de archivos con Multer.
-                             |
+  | middleware  | Middlewares para autenticación, validación, y manejo de archivos con Multer.|
   | models      | Modelos de Mongoose para representar los datos en la base de datos         |
   | routes      | Definición de las rutas de la API                                           |
 
