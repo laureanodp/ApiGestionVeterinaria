@@ -5,11 +5,16 @@ const Cliente = require("../models/Cliente");
 exports.createCliente = async (req, res) => {
   try {
     const { nombre, telefono, email } = req.body;
+
+    // Obtener la URL de la imagen (si fue enviada)
+    const imageUrl = req.file ? req.file.path : null;
+
     const nuevoCliente = await Cliente.create({
       nombre,
       telefono,
       email,
       user_id: req.user.id, // Asociar al usuario autenticado
+      imageUrl,
     });
     res.status(201).json(nuevoCliente);
   } catch (error) {
@@ -27,7 +32,7 @@ exports.getClientes = async (req, res) => {
   }
 };
 
-// Obtener un cliente por ID, asegurando que sea del usuario autenticado
+//Obtener un cliente por ID, asegurando que sea del usuario autenticado
 exports.getClienteById = async (req, res) => {
   try {
     const cliente = await Cliente.findOne({
@@ -45,9 +50,17 @@ exports.getClienteById = async (req, res) => {
 // Actualizar un cliente (solo si pertenece al usuario autenticado)
 exports.updateCliente = async (req, res) => {
   try {
+    // Se prepara el objeto de actualización a partir de req.body
+    const updateData = { ...req.body };
+
+    // Si se envía una imagen, se actualiza la propiedad imageUrl
+    if (req.file) {
+      updateData.imageUrl = req.file.path;
+    }
+
     const cliente = await Cliente.findOneAndUpdate(
       { _id: req.params.id, user_id: req.user.id },
-      req.body,
+      updateData,
       { new: true, runValidators: true }
     );
     if (!cliente)

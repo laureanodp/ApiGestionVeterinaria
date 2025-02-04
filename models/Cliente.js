@@ -11,6 +11,7 @@ const clienteSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     }, // Relación con Usuario
+    imageUrl: { type: String, required: false },
   },
   { timestamps: true }
 );

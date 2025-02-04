@@ -22,5 +22,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/clientes", clienteRoutes);
 app.use("/api/mascotas", mascotaRoutes);
 
+
+
 // Exportar el handler para Vercel
 module.exports = app;
